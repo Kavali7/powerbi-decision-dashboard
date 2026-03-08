@@ -111,6 +111,15 @@ Ils reflètent fidèlement les données du dépôt : mêmes zones, mêmes compos
 
 Les captures réelles du dashboard Power BI seront ajoutées lors de la construction du fichier `.pbix` (étape suivante).
 
+### Livrable exportable (`assets/pdf/`)
+
+Le fichier [`decision-dashboard-summary.pdf`](assets/pdf/decision-dashboard-summary.pdf) est un **rapport de synthèse automatiquement généré** par le script `scripts/generate_pdf_report.py`. Il contient 4 pages :
+
+1. **Couverture** — titre, période, mention données synthétiques
+2. **Vue dirigeant** — KPI, tendance mensuelle, classement par zone
+3. **Vue opérationnelle** — composantes, responsables, reporting
+4. **Note de lecture** — 5 enseignements, 3 vigilances, 3 usages
+
 ---
 
 ## Données utilisées
@@ -155,6 +164,7 @@ L'approche privilégie une lecture sobre, hiérarchisée et orientée action.
 - [`scripts/generate_synthetic_data.py`](scripts/generate_synthetic_data.py) — Génération des données synthétiques
 - [`scripts/prepare_dashboard_input.py`](scripts/prepare_dashboard_input.py) — Préparation du dataset consolidé
 - [`scripts/generate_charts.py`](scripts/generate_charts.py) — Génération des graphiques à partir des données
+- [`scripts/generate_pdf_report.py`](scripts/generate_pdf_report.py) — Génération du PDF de synthèse décisionnelle
 - [`scripts/validate_outputs.py`](scripts/validate_outputs.py) — Validation QA du dataset et des livrables
 
 ### Documentation

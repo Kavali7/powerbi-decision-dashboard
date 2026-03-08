@@ -60,7 +60,8 @@ MANAGERS = {
 ZONE_MANAGER_MAP = {"Z01": "M01", "Z02": "M02", "Z03": "M03", "Z04": "M04", "Z05": "M05", "Z06": "M06"}
 
 # Profils de performance par zone (taux de base)
-ZONE_PERFORMANCE = {"Z01": 0.90, "Z02": 0.85, "Z03": 0.92, "Z04": 0.88, "Z05": 0.68, "Z06": 0.82}
+# Z01/Z03 = performantes, Z04/Z06 = solides, Z02 = modérée, Z05 = en difficulté
+ZONE_PERFORMANCE = {"Z01": 0.93, "Z02": 0.78, "Z03": 0.95, "Z04": 0.90, "Z05": 0.65, "Z06": 0.88}
 
 # Niveaux d'activité par composante
 COMP_BASELINES = {
@@ -139,7 +140,9 @@ def generate_fact_monthly_performance():
 
             for comp_id in COMPONENTS:
                 bl = COMP_BASELINES[comp_id]
-                rate = clamp(base * season * trend + random.gauss(0, 0.05), 0.40, 1.0)
+                # Zones performantes = moins de bruit, zones faibles = plus de bruit
+                noise_level = 0.02 if base >= 0.90 else (0.05 if base >= 0.80 else 0.07)
+                rate = clamp(base * season * trend + random.gauss(0, noise_level), 0.40, 1.0)
 
                 if comp_id == "C04" and zone_id == "Z05":
                     rate = max(0.35, rate - idx * 0.015)
@@ -147,15 +150,29 @@ def generate_fact_monthly_performance():
                 planned = max(4, bl["planned"] + random.randint(-1, 2))
                 completed = max(1, round(planned * rate))
                 t_benef = max(0, bl["benef"] + random.randint(-20, 29)) if bl["benef"] > 0 else 0
-                a_benef = max(0, round(t_benef * clamp(rate + random.gauss(0, 0.05), 0.3, 1.0))) if t_benef > 0 else 0
+                a_benef = max(0, round(t_benef * clamp(rate + random.gauss(0, noise_level), 0.3, 1.0))) if t_benef > 0 else 0
                 t_output = max(1, bl["output"] + random.randint(-1, 2))
-                a_output = max(1, round(t_output * clamp(rate + random.gauss(0, 0.04), 0.3, 1.0)))
+                a_output = max(1, round(t_output * clamp(rate + random.gauss(0, noise_level * 0.8), 0.3, 1.0)))
                 rpt_exp = 4
-                rpt_sub = random.choice([3, 4, 4, 4]) if rate > 0.75 else random.choice([2, 3, 3, 4])
-                rpt_ot = min(rpt_sub, max(1, round(rpt_exp * clamp(rate + random.gauss(0, 0.08), 0.25, 1.0))))
+                # Zones performantes = reporting fiable
+                if base >= 0.90:
+                    rpt_sub = 4
+                    rpt_ot = random.choice([3, 4, 4, 4, 4])
+                elif base >= 0.80:
+                    rpt_sub = random.choice([3, 4, 4, 4])
+                    rpt_ot = min(rpt_sub, max(2, round(rpt_exp * clamp(rate + random.gauss(0, 0.05), 0.5, 1.0))))
+                else:
+                    rpt_sub = random.choice([2, 3, 3, 4])
+                    rpt_ot = min(rpt_sub, max(1, round(rpt_exp * clamp(rate + random.gauss(0, 0.08), 0.25, 1.0))))
                 o_iss = random.randint(1, 3) if rate > 0.80 else random.randint(3, 7)
                 c_iss = max(0, round(o_iss * min(1.0, rate + 0.1)))
-                alerts = 0 if rate > 0.85 else (random.randint(1, 2) if rate > 0.70 else random.randint(2, 4))
+                # Zones performantes = quasi pas d'alertes prioritaires
+                if base >= 0.90:
+                    alerts = 0
+                elif base >= 0.80:
+                    alerts = 0 if rate > 0.85 else random.choice([0, 0, 1])
+                else:
+                    alerts = random.randint(1, 2) if rate > 0.70 else random.randint(2, 4)
 
                 rows.append({
                     "date_key": date_key, "zone_id": zone_id, "component_id": comp_id, "manager_id": mgr,
