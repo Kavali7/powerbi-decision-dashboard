@@ -19,6 +19,6 @@ data/dictionary/   → dictionnaire de données
 scripts/           → scripts Python de génération et préparation
 docs/              → documentation métier et technique
 dashboard/powerbi/ → fichier Power BI (ou placeholder)
-assets/            → visuels, mockups, diagrammes, PDFs
+assets/            → visuels, graphiques, diagrammes, PDFs
 notebooks/         → notebooks Jupyter de démonstration
 ```
