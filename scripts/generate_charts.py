@@ -319,7 +319,7 @@ def chart_02_performance_by_zone(data):
     for j, h in enumerate(headers):
         ax2.text(col_x[j], 0.94, h, fontsize=9, fontweight='bold', color=SUBTITLE_COLOR, transform=ax2.transAxes)
     
-    ax2.axhline(y=0.92, xmin=0.01, xmax=0.99, color=GRID_COLOR, linewidth=0.5, transform=ax2.transAxes)
+    ax2.plot([0.01, 0.99], [0.92, 0.92], color=GRID_COLOR, linewidth=0.5, transform=ax2.transAxes, clip_on=False)
     
     for i, (zone, rates) in enumerate(sorted_zones):
         y = 0.85 - i * 0.13
