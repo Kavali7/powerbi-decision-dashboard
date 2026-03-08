@@ -55,9 +55,23 @@ Ces points ne sont pas automatisables et doivent être vérifiés visuellement :
 |---|---|
 | Dashboard Power BI réel construit | ⬜ À faire (Passe 3) |
 | Captures réelles dans `assets/screenshots/` | ⬜ À faire (Passe 3) |
-| Export PDF réel dans `assets/pdf/` | ⬜ À faire (Passe 2) |
+| Export PDF réel dans `assets/pdf/` | ✅ Fait (Passe 2) |
 | Lecture "prospect non technique" du README | ⬜ À valider |
 | Cohérence visuelle des graphiques | ✅ Vérifié (Passe 1) |
+
+---
+
+## Contrôles manuels Passe 2
+
+| Vérification | Statut |
+| --- | --- |
+| PDF généré sans erreur (5 pages) | ✅ |
+| Pagination correcte (1/5 à 5/5) | ✅ |
+| Titre cohérent sur la couverture | ✅ |
+| Mention "données synthétiques" visible | ✅ |
+| Charts nets dans le PDF (graphiques pages 2 et 3) | ✅ |
+| README mis à jour avec lien PDF | ✅ |
+| Script PDF renommé (`generate_pdf_summary.py`) | ✅ |
 
 ---
 

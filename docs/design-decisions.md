@@ -85,3 +85,14 @@ Chaque visuel répond à une question métier :
 > C'est celui qui permet à un décideur de comprendre la situation et d'agir.
 
 La complexité technique est un moyen, pas une fin. La vraie valeur est dans la **clarté décisionnelle**.
+
+---
+
+## Note Passe 2 — Lisibilité exportable
+
+La Passe 2 a renforcé les choix suivants :
+
+- **Sobriété visuelle** : réduction des effets superflus, respiration accrue.
+- **Cohérence des codes couleurs** : vert = conforme, orange = vigilance, rouge = critique.
+- **Distinction claire** entre preuve versionnable (charts + PDF) et futur dashboard Power BI natif.
+- **Priorité à l'exportabilité** : le PDF de synthèse doit être partageable tel quel, sans contexte supplémentaire.

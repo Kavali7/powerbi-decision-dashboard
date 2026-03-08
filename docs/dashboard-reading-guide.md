@@ -80,3 +80,13 @@ Consulter la **table d'alertes** :
 | Composante | Mobilisation, Formation, Suivi, Appui |
 | Responsable | Les 6 managers |
 | Priorité | High, Medium |
+
+---
+
+## Comment utiliser cette démonstration dans un échange commercial
+
+Cette démonstration peut être partagée de 3 manières :
+
+1. **Lien GitHub** — envoyer le lien du dépôt directement pour montrer la méthode et la structure.
+2. **PDF joint** — joindre `assets/pdf/decision-dashboard-summary.pdf` à un email comme preuve de restitution décisionnelle.
+3. **Chart inséré** — intégrer un ou plusieurs graphiques de `assets/charts/` dans un email, une présentation ou un document commercial.
