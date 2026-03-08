@@ -1,0 +1,4 @@
+Ce fichier est un placeholder.
+
+Le fichier Power BI (.pbix) n'est pas inclus dans cette version publique.
+Consultez le fichier README.md dans ce dossier pour les instructions de reconstruction.

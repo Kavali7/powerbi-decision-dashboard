@@ -1,0 +1,7 @@
+zone_id,zone_name,region_group,site_count,population_coverage_estimate,zone_priority_level
+Z01,Abidjan-Plateau,Afrique de l'Ouest,5,185000,High
+Z02,Dakar-Almadies,Afrique de l'Ouest,4,142000,Medium
+Z03,Douala-Littoral,Afrique Centrale,6,167000,High
+Z04,Nairobi-Westlands,Afrique de l'Est,4,198000,High
+Z05,Kinshasa-Gombe,Afrique Centrale,3,210000,Medium
+Z06,Casablanca-Anfa,Afrique du Nord,5,155000,Medium
