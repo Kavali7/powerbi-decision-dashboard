@@ -1,5 +1,7 @@
 # Guide de lecture du dashboard
 
+> Les visuels de référence pour ce guide se trouvent dans `assets/charts/`, générés à partir du dataset du dépôt.
+
 ## Logique de lecture en 10 secondes
 
 Un décideur doit pouvoir capter l'essentiel en regardant le dashboard pendant 10 secondes.

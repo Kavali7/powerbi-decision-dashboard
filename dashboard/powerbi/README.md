@@ -1,10 +1,15 @@
-# Ce dossier contient le fichier Power BI du dashboard décisionnel
+# Ce dossier contient les éléments du dashboard décisionnel
 
 ## Statut actuel
 
-Le fichier `.pbix` n'est pas inclus dans cette version publique du dépôt.
+Le fichier `.pbix` n'est pas inclus dans cette version du dépôt.
 
-Ce dépôt montre la structure complète, les données sources, les visuels de démonstration et la logique métier du tableau de bord.
+Le dépôt fournit actuellement :
+
+- la structure complète des données ;
+- le dataset consolidé prêt à charger ;
+- des graphiques générés à partir des données réelles du dépôt ;
+- la documentation métier et le cadre des indicateurs.
 
 ## Reconstruction du dashboard
 
@@ -36,9 +41,9 @@ Le dashboard comporte deux pages :
 - Reporting et problèmes
 - Tableau analytique filtrable
 
-## Pourquoi le fichier `.pbix` n'est pas inclus
+## Pourquoi le fichier `.pbix` n'est pas encore inclus
 
 - Un fichier `.pbix` vide ou factice n'apporte aucune valeur.
-- Les captures d'écran et la documentation montrent le résultat final.
+- Les graphiques générés dans `assets/charts/` montrent les données réelles du dépôt.
 - Le dataset fourni permet de reconstruire le dashboard facilement.
-- Cette approche est plus honnête et plus crédible.
+- Le `.pbix` réel sera ajouté dès que la V1 du dashboard sera construite.

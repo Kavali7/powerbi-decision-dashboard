@@ -237,10 +237,10 @@ def chart_01_executive_overview(data):
         level = 'Critique' if count > 40 else ('Modéré' if count > 20 else 'Faible')
         ax5.text(0.80, y, level, fontsize=8, color=color, transform=ax5.transAxes)
     
-    plt.savefig(os.path.join(OUTPUT_DIR, '01-executive-overview-mockup.png'), 
+    plt.savefig(os.path.join(OUTPUT_DIR, '01-executive-overview.png'), 
                 facecolor=BG_COLOR, dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close()
-    print("  ✓ 01-executive-overview-mockup.png")
+    print("  ✓ 01-executive-overview.png")
 
 
 # ─── CHART 2: Performance by Zone ───────────────────────────────────────
@@ -337,10 +337,10 @@ def chart_02_performance_by_zone(data):
     ax2.text(0.5, 0.02, 'Vert = conforme · Rouge = en alerte · Orange = à surveiller',
              ha='center', fontsize=8, color=SUBTITLE_COLOR, transform=ax2.transAxes, style='italic')
     
-    plt.savefig(os.path.join(OUTPUT_DIR, '02-performance-by-zone-mockup.png'),
+    plt.savefig(os.path.join(OUTPUT_DIR, '02-performance-by-zone.png'),
                 facecolor=BG_COLOR, dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close()
-    print("  ✓ 02-performance-by-zone-mockup.png")
+    print("  ✓ 02-performance-by-zone.png")
 
 
 # ─── CHART 3: Budget vs Results ─────────────────────────────────────────
@@ -436,10 +436,10 @@ def chart_03_budget_vs_results(data):
         ax_k.text(0.5, 0.65, val, ha='center', va='center', fontsize=20, fontweight='bold', color=color, transform=ax_k.transAxes)
         ax_k.text(0.5, 0.25, label, ha='center', va='center', fontsize=8, color=SUBTITLE_COLOR, transform=ax_k.transAxes)
     
-    plt.savefig(os.path.join(OUTPUT_DIR, '03-budget-vs-results-mockup.png'),
+    plt.savefig(os.path.join(OUTPUT_DIR, '03-budget-vs-results.png'),
                 facecolor=BG_COLOR, dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close()
-    print("  ✓ 03-budget-vs-results-mockup.png")
+    print("  ✓ 03-budget-vs-results.png")
 
 
 # ─── CHART 4: Alerts Table ──────────────────────────────────────────────
@@ -563,10 +563,10 @@ def chart_04_alerts_table(data):
         rect = plt.Rectangle((0.08, y - 0.04), bar_width, 0.03, facecolor=ACCENT_RED, alpha=0.3, transform=ax3.transAxes)
         ax3.add_patch(rect)
     
-    plt.savefig(os.path.join(OUTPUT_DIR, '04-alerts-table-mockup.png'),
+    plt.savefig(os.path.join(OUTPUT_DIR, '04-alerts-table.png'),
                 facecolor=BG_COLOR, dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close()
-    print("  ✓ 04-alerts-table-mockup.png")
+    print("  ✓ 04-alerts-table.png")
 
 
 # ─── CHART 5: Operational View ──────────────────────────────────────────
@@ -719,10 +719,10 @@ def chart_05_operational_view(data):
         ax5.text(0.55, y, f'{rate:.0%}', fontsize=10, fontweight='bold', color=color, transform=ax5.transAxes)
         ax5.text(0.80, y, status, fontsize=14, color=color, transform=ax5.transAxes)
     
-    plt.savefig(os.path.join(OUTPUT_DIR, '05-operational-view-mockup.png'),
+    plt.savefig(os.path.join(OUTPUT_DIR, '05-operational-view.png'),
                 facecolor=BG_COLOR, dpi=150, bbox_inches='tight', pad_inches=0.3)
     plt.close()
-    print("  ✓ 05-operational-view-mockup.png")
+    print("  ✓ 05-operational-view.png")
 
 
 # ─── Main ───────────────────────────────────────────────────────────────

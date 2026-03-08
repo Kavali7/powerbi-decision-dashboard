@@ -37,7 +37,7 @@ Chaque visuel répond à une question métier :
 
 ### Palette de couleurs
 
-- Fond sobre (blanc ou gris très clair).
+- Fond sombre pour la lisibilité en comité.
 - Couleurs d'accent limitées à 2-3 tons.
 - Rouge réservé aux alertes critiques.
 - Vert utilisé avec modération (pas de "tout est vert").
