@@ -92,8 +92,8 @@ def chart_01_executive_overview(data):
     # Titre
     fig.text(0.5, 0.96, 'Tableau de Bord Décisionnel — Suivi de Programme',
              ha='center', va='top', fontsize=18, fontweight='bold', color=TEXT_COLOR)
-    fig.text(0.5, 0.93, 'Aperçu exécutif · Données synthétiques de démonstration',
-             ha='center', va='top', fontsize=10, color=SUBTITLE_COLOR)
+    fig.text(0.5, 0.935, 'Aperçu exécutif · Données synthétiques de démonstration',
+             ha='center', va='top', fontsize=11, color=SUBTITLE_COLOR)
     
     # KPI Cards
     kpis = [
@@ -106,17 +106,17 @@ def chart_01_executive_overview(data):
     ]
     
     for i, (val, label, color) in enumerate(kpis):
-        ax = fig.add_axes([0.03 + i * 0.157, 0.78, 0.14, 0.12])
+        ax = fig.add_axes([0.03 + i * 0.157, 0.82, 0.14, 0.10])
         ax.set_facecolor(CARD_BG)
         for spine in ax.spines.values():
             spine.set_visible(False)
         ax.set_xticks([])
         ax.set_yticks([])
-        ax.text(0.5, 0.7, val, ha='center', va='center', fontsize=22, fontweight='bold', color=color, transform=ax.transAxes)
-        ax.text(0.5, 0.2, label, ha='center', va='center', fontsize=8, color=SUBTITLE_COLOR, transform=ax.transAxes)
+        ax.text(0.5, 0.68, val, ha='center', va='center', fontsize=22, fontweight='bold', color=color, transform=ax.transAxes)
+        ax.text(0.5, 0.22, label, ha='center', va='center', fontsize=9, color=SUBTITLE_COLOR, transform=ax.transAxes)
     
     # Tendance mensuelle
-    ax2 = fig.add_axes([0.06, 0.40, 0.55, 0.32])
+    ax2 = fig.add_axes([0.06, 0.38, 0.55, 0.34])
     ax2.set_facecolor(BG_COLOR)
     
     monthly = defaultdict(lambda: {'planned': 0, 'completed': 0})
@@ -147,7 +147,7 @@ def chart_01_executive_overview(data):
     ax2.yaxis.grid(True, color=GRID_COLOR, alpha=0.3)
     
     # Comparaison par zone (barres horizontales)
-    ax3 = fig.add_axes([0.68, 0.40, 0.28, 0.32])
+    ax3 = fig.add_axes([0.68, 0.38, 0.28, 0.34])
     ax3.set_facecolor(BG_COLOR)
     
     zone_perf = defaultdict(lambda: {'planned': 0, 'completed': 0})
@@ -230,12 +230,11 @@ def chart_01_executive_overview(data):
     
     for i, (zone, count) in enumerate(sorted_alerts):
         y = 0.80 - i * 0.13
-        short_name = zone.split('-')[0] if len(zone) > 12 else zone
         color = ACCENT_RED if count > 40 else (ACCENT_ORANGE if count > 20 else ACCENT_GREEN)
-        ax5.text(0.05, y, short_name, fontsize=9, color=TEXT_COLOR, transform=ax5.transAxes)
-        ax5.text(0.65, y, str(count), fontsize=11, fontweight='bold', color=color, transform=ax5.transAxes)
+        ax5.text(0.05, y, zone, fontsize=8, color=TEXT_COLOR, transform=ax5.transAxes)
+        ax5.text(0.68, y, str(count), fontsize=11, fontweight='bold', color=color, transform=ax5.transAxes)
         level = 'Critique' if count > 40 else ('Modéré' if count > 20 else 'Faible')
-        ax5.text(0.80, y, level, fontsize=8, color=color, transform=ax5.transAxes)
+        ax5.text(0.82, y, level, fontsize=8, color=color, transform=ax5.transAxes)
     
     plt.savefig(os.path.join(OUTPUT_DIR, '01-executive-overview.png'), 
                 facecolor=BG_COLOR, dpi=150, bbox_inches='tight', pad_inches=0.3)
@@ -283,7 +282,7 @@ def chart_02_performance_by_zone(data):
     
     z_names = [z[0] for z in sorted_zones]
     z_vals = [z[1]['acr'] for z in sorted_zones]
-    z_colors = [ZONE_COLORS.get(z, ACCENT_BLUE) for z in z_names]
+    z_colors = [ACCENT_GREEN if v >= 0.80 else (ACCENT_ORANGE if v >= 0.70 else ACCENT_RED) for v in z_vals]
     
     y_pos = range(len(z_names))
     bars = ax.barh(y_pos, z_vals, color=z_colors, height=0.6, alpha=0.85)
@@ -323,8 +322,7 @@ def chart_02_performance_by_zone(data):
     
     for i, (zone, rates) in enumerate(sorted_zones):
         y = 0.85 - i * 0.13
-        short = zone.split('-')[0] if len(zone) > 10 else zone
-        ax2.text(col_x[0], y, short, fontsize=9, color=TEXT_COLOR, transform=ax2.transAxes)
+        ax2.text(col_x[0], y, zone, fontsize=8, color=TEXT_COLOR, transform=ax2.transAxes)
         
         vals = [rates['acr'], rates['bar'], rates['ber'], rates['rtr']]
         for j, v in enumerate(vals):
@@ -334,7 +332,7 @@ def chart_02_performance_by_zone(data):
                 color = ACCENT_GREEN if v >= 0.80 else ACCENT_RED
             ax2.text(col_x[j+1], y, f'{v:.0%}', fontsize=10, fontweight='bold', color=color, transform=ax2.transAxes)
     
-    ax2.text(0.5, 0.02, 'Vert = conforme · Rouge = en alerte · Orange = à surveiller',
+    ax2.text(0.5, 0.02, 'Vert = conforme (≥80%)  ·  Orange = à surveiller (≥70%)  ·  Rouge = critique (<70%)',
              ha='center', fontsize=8, color=SUBTITLE_COLOR, transform=ax2.transAxes, style='italic')
     
     plt.savefig(os.path.join(OUTPUT_DIR, '02-performance-by-zone.png'),
@@ -376,7 +374,7 @@ def chart_03_budget_vs_results(data):
     
     ax.set_xticks(x)
     ax.set_xticklabels([z.split('-')[0] for z in z_names], fontsize=9, color=SUBTITLE_COLOR)
-    ax.set_ylabel('Millions (XOF)', color=SUBTITLE_COLOR, fontsize=9)
+    ax.set_ylabel('Budget (millions FCFA)', color=SUBTITLE_COLOR, fontsize=9)
     ax.legend(fontsize=8, facecolor=CARD_BG, edgecolor=GRID_COLOR, labelcolor=TEXT_COLOR)
     ax.set_title('Budget par zone', color=TEXT_COLOR, fontsize=12, pad=10)
     ax.tick_params(colors=SUBTITLE_COLOR)
@@ -420,10 +418,10 @@ def chart_03_budget_vs_results(data):
     exec_rate = total_spent / total_planned if total_planned else 0
     
     kpis = [
-        (f'{total_planned/1e9:.2f} Mrd', 'Budget total planifié', ACCENT_BLUE),
-        (f'{total_spent/1e9:.2f} Mrd', 'Budget total dépensé', ACCENT_ORANGE),
-        (f'{exec_rate:.0%}', 'Taux d\'exécution global', ACCENT_GREEN if 0.85 <= exec_rate <= 1.05 else ACCENT_RED),
-        (f'{variance/1e6:+.0f}M', 'Écart budgétaire global', ACCENT_RED if variance > 0 else ACCENT_GREEN),
+        (f'{total_planned/1e6:,.0f}M', 'Budget total\nplanifié (FCFA)', ACCENT_BLUE),
+        (f'{total_spent/1e6:,.0f}M', 'Budget total\ndépensé (FCFA)', ACCENT_ORANGE),
+        (f'{exec_rate:.0%}', 'Taux d\'exécution\nbudgétaire global', ACCENT_GREEN if 0.85 <= exec_rate <= 1.05 else ACCENT_RED),
+        (f'{variance/1e6:+.0f}M', 'Écart budgétaire\nglobal (FCFA)', ACCENT_RED if variance > 0 else ACCENT_GREEN),
     ]
     
     for i, (val, label, color) in enumerate(kpis):
@@ -518,7 +516,7 @@ def chart_04_alerts_table(data):
     ax2.set_xlim(0, len(comps_list))
     ax2.set_ylim(0, len(zones_list))
     ax2.set_xticks([j + 0.5 for j in range(len(comps_list))])
-    short_comps = [c[:15] + '...' if len(c) > 15 else c for c in comps_list]
+    short_comps = [c for c in comps_list]
     ax2.set_xticklabels(short_comps, fontsize=8, color=SUBTITLE_COLOR, rotation=30, ha='right')
     ax2.set_yticks([i + 0.5 for i in range(len(zones_list))])
     ax2.set_yticklabels(reversed(zones_list), fontsize=9, color=TEXT_COLOR)
@@ -597,9 +595,8 @@ def chart_05_operational_view(data):
     ax.bar([i - w/2 for i in x], planned_c, w, color=ACCENT_BLUE, alpha=0.7, label='Planifié')
     ax.bar([i + w/2 for i in x], completed_c, w, color=ACCENT_GREEN, alpha=0.7, label='Réalisé')
     
-    short_names = [c[:12] + '...' if len(c) > 12 else c for c in c_names]
     ax.set_xticks(x)
-    ax.set_xticklabels(short_names, fontsize=8, color=SUBTITLE_COLOR, rotation=15)
+    ax.set_xticklabels(c_names, fontsize=7, color=SUBTITLE_COLOR, rotation=20, ha='right')
     ax.set_ylabel('Nombre d\'activités', color=SUBTITLE_COLOR, fontsize=9)
     ax.legend(fontsize=8, facecolor=CARD_BG, edgecolor=GRID_COLOR, labelcolor=TEXT_COLOR)
     ax.set_title('Activités par composante', color=TEXT_COLOR, fontsize=12, pad=10)
@@ -644,7 +641,7 @@ def chart_05_operational_view(data):
     ax2.spines['bottom'].set_color(GRID_COLOR)
     ax2.spines['left'].set_color(GRID_COLOR)
     
-    # Reporting (donut)
+    # Reporting (stacked horizontal bar)
     ax3 = fig.add_axes([0.06, 0.06, 0.25, 0.36])
     ax3.set_facecolor(BG_COLOR)
     
@@ -654,17 +651,24 @@ def chart_05_operational_view(data):
     rpt_late = total_rpt_sub - total_rpt_ot
     rpt_missing = total_rpt_exp - total_rpt_sub
     
-    sizes = [total_rpt_ot, rpt_late, rpt_missing]
-    labels_d = ['À temps', 'En retard', 'Non soumis']
-    colors_d = [ACCENT_GREEN, ACCENT_ORANGE, ACCENT_RED]
+    pct_ot = total_rpt_ot / total_rpt_exp if total_rpt_exp else 0
+    pct_late = rpt_late / total_rpt_exp if total_rpt_exp else 0
+    pct_miss = rpt_missing / total_rpt_exp if total_rpt_exp else 0
     
-    wedges, texts, autotexts = ax3.pie(sizes, labels=labels_d, colors=colors_d, autopct='%1.0f%%',
-                                        startangle=90, pctdistance=0.75, wedgeprops=dict(width=0.35),
-                                        textprops={'color': TEXT_COLOR, 'fontsize': 8})
-    for t in autotexts:
-        t.set_fontsize(9)
-        t.set_fontweight('bold')
-    ax3.set_title('Statut du reporting', color=TEXT_COLOR, fontsize=11, pad=5)
+    ax3.barh(0, pct_ot, color=ACCENT_GREEN, height=0.5, label=f'À temps ({pct_ot:.0%})')
+    ax3.barh(0, pct_late, left=pct_ot, color=ACCENT_ORANGE, height=0.5, label=f'En retard ({pct_late:.0%})')
+    ax3.barh(0, pct_miss, left=pct_ot + pct_late, color=ACCENT_RED, height=0.5, label=f'Non soumis ({pct_miss:.0%})')
+    ax3.set_xlim(0, 1)
+    ax3.set_yticks([])
+    ax3.xaxis.set_major_formatter(mticker.PercentFormatter(1.0))
+    ax3.tick_params(colors=SUBTITLE_COLOR, labelsize=8)
+    ax3.legend(fontsize=8, loc='upper center', bbox_to_anchor=(0.5, -0.05), ncol=1,
+              facecolor=CARD_BG, edgecolor=GRID_COLOR, labelcolor=TEXT_COLOR)
+    ax3.set_title('Statut du reporting', color=TEXT_COLOR, fontsize=11, pad=10)
+    ax3.spines['top'].set_visible(False)
+    ax3.spines['right'].set_visible(False)
+    ax3.spines['left'].set_visible(False)
+    ax3.spines['bottom'].set_color(GRID_COLOR)
     
     # Issues (bar chart)
     ax4 = fig.add_axes([0.38, 0.06, 0.25, 0.36])
@@ -706,18 +710,19 @@ def chart_05_operational_view(data):
              fontweight='bold', color=TEXT_COLOR, transform=ax5.transAxes)
     
     ax5.text(0.05, 0.85, 'Composante', fontsize=8, fontweight='bold', color=SUBTITLE_COLOR, transform=ax5.transAxes)
-    ax5.text(0.55, 0.85, 'Taux', fontsize=8, fontweight='bold', color=SUBTITLE_COLOR, transform=ax5.transAxes)
-    ax5.text(0.75, 0.85, 'Statut', fontsize=8, fontweight='bold', color=SUBTITLE_COLOR, transform=ax5.transAxes)
+    ax5.text(0.52, 0.85, 'Réal./Plan.', fontsize=8, fontweight='bold', color=SUBTITLE_COLOR, transform=ax5.transAxes)
+    ax5.text(0.72, 0.85, 'Taux', fontsize=8, fontweight='bold', color=SUBTITLE_COLOR, transform=ax5.transAxes)
+    ax5.text(0.88, 0.85, '⬤', fontsize=8, fontweight='bold', color=SUBTITLE_COLOR, transform=ax5.transAxes)
     
     for i, cn in enumerate(sorted(comp_data.keys())):
         y = 0.72 - i * 0.16
         rate = comp_data[cn]['completed'] / comp_data[cn]['planned'] if comp_data[cn]['planned'] else 0
         color = ACCENT_GREEN if rate >= 0.85 else (ACCENT_ORANGE if rate >= 0.75 else ACCENT_RED)
         status = '●' if rate >= 0.85 else ('◐' if rate >= 0.75 else '○')
-        short = cn[:18] + '..' if len(cn) > 18 else cn
-        ax5.text(0.05, y, short, fontsize=8, color=TEXT_COLOR, transform=ax5.transAxes)
-        ax5.text(0.55, y, f'{rate:.0%}', fontsize=10, fontweight='bold', color=color, transform=ax5.transAxes)
-        ax5.text(0.80, y, status, fontsize=14, color=color, transform=ax5.transAxes)
+        ax5.text(0.05, y, cn, fontsize=7, color=TEXT_COLOR, transform=ax5.transAxes)
+        ax5.text(0.52, y, f"{comp_data[cn]['completed']}/{comp_data[cn]['planned']}", fontsize=8, color=SUBTITLE_COLOR, transform=ax5.transAxes)
+        ax5.text(0.72, y, f'{rate:.0%}', fontsize=10, fontweight='bold', color=color, transform=ax5.transAxes)
+        ax5.text(0.88, y, status, fontsize=14, color=color, transform=ax5.transAxes)
     
     plt.savefig(os.path.join(OUTPUT_DIR, '05-operational-view.png'),
                 facecolor=BG_COLOR, dpi=150, bbox_inches='tight', pad_inches=0.3)

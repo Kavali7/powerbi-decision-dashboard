@@ -221,7 +221,7 @@ def page_executive(pdf, data):
     ]
     for i, line in enumerate(reading):
         w = "bold" if i == 0 else "normal"
-        fig.text(0.06, 0.30 - i * 0.032, line, fontsize=8, color=TEXT_WHITE, fontweight=w)
+        fig.text(0.06, 0.30 - i * 0.035, line, fontsize=9, color=TEXT_WHITE, fontweight=w)
 
     footer(fig, 2)
     pdf.savefig(fig, facecolor=BG_COLOR)
@@ -331,7 +331,7 @@ def page_operational(pdf, data):
         ax3.text(0.82, y, status, fontsize=12, color=color, transform=ax3.transAxes)
 
     fig.text(0.06, 0.42, "Ce que permet cette vue : comparer les composantes, suivre la performance par responsable, "
-             "lire le reporting, repérer les problèmes ouverts.", fontsize=8, color=TEXT_SECONDARY, style="italic")
+             "lire le reporting, repérer les problèmes ouverts.", fontsize=9, color=TEXT_SECONDARY, style="italic")
 
     footer(fig, 3)
     pdf.savefig(fig, facecolor=BG_COLOR)
@@ -375,10 +375,10 @@ def page_insights(pdf, data):
         "en mettant en avant les situations qui appellent une décision.",
     ]
     for i, txt in enumerate(insights):
-        fig.text(0.07, y - 0.06 - i * 0.065, f"{i + 1}.",
-                 fontsize=9, fontweight="bold", color=ACCENT_BLUE)
-        fig.text(0.10, y - 0.06 - i * 0.065, txt,
-                 fontsize=8, color=TEXT_WHITE, wrap=True)
+        fig.text(0.07, y - 0.06 - i * 0.072, f"{i + 1}.",
+                 fontsize=10, fontweight="bold", color=ACCENT_BLUE)
+        fig.text(0.10, y - 0.06 - i * 0.072, txt,
+                 fontsize=9, color=TEXT_WHITE, wrap=True)
 
     # ── 3 Vigilances (droite haut) ──────────────────────────────────
     y2 = 0.48
@@ -393,10 +393,10 @@ def page_insights(pdf, data):
         "La hiérarchisation des signaux est centrale.",
     ]
     for i, txt in enumerate(vigilance):
-        fig.text(0.07, y2 - 0.055 - i * 0.06, "⚠",
-                 fontsize=10, color=ACCENT_ORANGE)
-        fig.text(0.10, y2 - 0.055 - i * 0.06, txt,
-                 fontsize=8, color=TEXT_WHITE, wrap=True)
+        fig.text(0.07, y2 - 0.055 - i * 0.065, "⚠",
+                 fontsize=11, color=ACCENT_ORANGE)
+        fig.text(0.10, y2 - 0.055 - i * 0.065, txt,
+                 fontsize=9, color=TEXT_WHITE, wrap=True)
 
     # ── 3 Usages (bas) ─────────────────────────────────────────────
     y3 = 0.18
@@ -408,10 +408,10 @@ def page_insights(pdf, data):
         "Produire une synthèse claire pour une direction ou un bailleur.",
     ]
     for i, txt in enumerate(usages):
-        fig.text(0.07, y3 - 0.045 - i * 0.04, "→",
-                 fontsize=10, color=ACCENT_GREEN)
-        fig.text(0.10, y3 - 0.045 - i * 0.04, txt,
-                 fontsize=8, color=TEXT_WHITE)
+        fig.text(0.07, y3 - 0.045 - i * 0.045, "→",
+                 fontsize=11, color=ACCENT_GREEN)
+        fig.text(0.10, y3 - 0.045 - i * 0.045, txt,
+                 fontsize=9, color=TEXT_WHITE)
 
     footer(fig, 4)
     pdf.savefig(fig, facecolor=BG_COLOR)
@@ -456,9 +456,9 @@ def page_about(pdf, data):
     for title, color, lines in sections:
         fig.text(0.08, y, title, fontsize=12, fontweight="bold", color=color)
         for i, line in enumerate(lines):
-            fig.text(0.10, y - 0.04 - i * 0.032, f"·  {line}",
-                     fontsize=8, color=TEXT_WHITE)
-        y -= 0.04 + len(lines) * 0.032 + 0.03
+            fig.text(0.10, y - 0.04 - i * 0.035, f"·  {line}",
+                     fontsize=9, color=TEXT_WHITE)
+        y -= 0.04 + len(lines) * 0.035 + 0.03
 
     fig.text(0.5, 0.06,
              "Lecture réalisée à partir d'un jeu de données synthétique conçu à des fins de démonstration.\n"
