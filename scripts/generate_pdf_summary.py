@@ -436,7 +436,7 @@ def page_about(pdf, data):
         ("Ce que contient le dépôt", ACCENT_BLUE, [
             "6 fichiers CSV source (4 dimensions + 2 tables de faits) — schéma en étoile.",
             "1 dataset consolidé de 360 observations (6 zones × 4 composantes × 15 mois).",
-            "4 scripts Python : génération, préparation, visualisation, validation QA.",
+            "5 scripts Python : génération, préparation, visualisation, validation QA, synthèse PDF.",
             "5 graphiques PNG générés à partir du dataset réel du dépôt.",
             "1 PDF de synthèse décisionnelle (ce document).",
             "Documentation métier complète : cas d'usage, KPI, guide de lecture, choix de conception.",
