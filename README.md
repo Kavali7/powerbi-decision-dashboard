@@ -107,9 +107,9 @@ Ils reflètent fidèlement les données du dépôt : mêmes zones, mêmes compos
 | `04-alerts-table.png` | Heatmap zone × composante, détail par type d'alerte |
 | `05-operational-view.png` | Composantes, responsables, reporting, problèmes |
 
-### Captures Power BI (`assets/screenshots/`)
+### Captures disponibles (`assets/screenshots/`)
 
-Les captures réelles du dashboard Power BI seront ajoutées lors de la construction du fichier `.pbix` (étape suivante).
+Les captures ci-dessous proviennent du PDF de synthèse exportable. Les captures natives Power BI pourront être ajoutées ultérieurement.
 
 ### Livrable exportable (`assets/pdf/`)
 
@@ -120,6 +120,33 @@ Le fichier [`decision-dashboard-summary.pdf`](assets/pdf/decision-dashboard-summ
 3. **Vue opérationnelle** — composantes, responsables, reporting
 4. **Note de lecture** — 5 enseignements, 3 vigilances, 3 usages
 5. **À propos** — nature des données, contenu du dépôt, usages prévus
+
+### Aperçus du livrable
+
+Les visuels ci-dessous sont issus du PDF de synthèse du projet.
+Ils donnent un aperçu concret de la manière dont les données sont transformées en support de pilotage clair, lisible et partageable.
+
+Les captures natives Power BI pourront être ajoutées dans une étape ultérieure.
+
+#### 1. Vue dirigeant
+
+Cette vue met en avant les indicateurs essentiels de pilotage :
+niveau global d'exécution, tendance mensuelle, comparaison des zones, cohérence budget / résultats, alertes prioritaires.
+
+![Vue dirigeant](assets/screenshots/pdf-01-executive-overview.png)
+
+#### 2. Vue opérationnelle
+
+Cette vue complète la lecture de synthèse par une lecture plus analytique :
+performance par composante, performance par responsable, état du reporting, suivi des problèmes, synthèse par zone.
+
+![Vue opérationnelle](assets/screenshots/pdf-02-operational-view.png)
+
+#### 3. Lecture décisionnelle
+
+Cette page montre comment les données et les visuels peuvent être traduits en lecture exploitable pour une direction, une coordination ou une réunion de pilotage.
+
+![Lecture décisionnelle](assets/screenshots/pdf-03-decision-reading.png)
 
 ---
 
