@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Décisionnel — Démonstration | Georges GUIDAN</title>
+    <meta name="description"
+        content="Transformez vos données de programme en tableau de bord décisionnel structuré. KPI, alertes automatisées, PDF exportable. Démonstration concrète.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/landing/style.css">
+</head>
+
+<body>
+
+    <!-- STICKY NAV -->
+    <nav class="sticky-nav" id="stickyNav">
+        <div class="container nav-inner">
+            <span class="nav-brand">Dashboard Décisionnel</span>
+            <div class="nav-links">
+                <a href="#demo">Démo</a>
+                <a href="#livrables">Livrables</a>
+                <a href="#methode">Méthode</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact" class="nav-cta">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FLOATING SCROLL BUTTONS -->
+    <div class="scroll-btns">
+        <button class="scroll-btn" id="scrollTop" title="Remonter en haut">↑</button>
+    </div>
+
+    <!-- 1. HERO -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <div class="hero-eyebrow">Démonstration de pilotage</div>
+                    <h1>Vos données ne servent pas <em>encore à décider</em> ?</h1>
+                    <p class="hero-body">Transformez des données dispersées en tableau de bord décisionnel structuré,
+                        avec alertes automatisées et PDF exportable.</p>
+                    <div class="hero-ctas">
+                        <a href="#demo" class="btn btn-hero">Voir la démonstration →</a>
+                        <a href="#contact" class="btn btn-ghost">Me contacter</a>
+                    </div>
+                    <div class="hero-proof">
+                        <span>6 KPI consolidés</span>
+                        <span>PDF 5 pages</span>
+                        <span>Alertes automatisées</span>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="assets/screenshots/pdf-01-executive-overview.png" alt="Vue dirigeant du tableau de bord"
+                        class="hero-mockup">
+                    <div class="hero-float-card card-kpi">
+                        <div class="card-kpi-value">82%</div>
+                        <div>
+                            <div class="card-kpi-label">Taux</div>
+                            <div class="card-kpi-label">d'exécution</div>
+                        </div>
+                    </div>
+                    <div class="hero-float-card card-badge">
+                        <div class="badge-dot"></div>
+                        Dashboard + PDF
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. AUDIENCE -->
+    <section class="audience">
+        <div class="container">
+            <div class="audience-inner">
+                <div class="section-label">Pour qui</div>
+                <h2 class="section-heading">Vous vous reconnaissez ?</h2>
+                <p class="section-desc center">Cette approche s'adresse à toute structure qui pilote des programmes, des
+                    budgets ou des équipes multi-zones.</p>
+                <div class="audience-grid">
+                    <div class="audience-row-featured">
+                        <div class="aud-card aud-featured">
+                            <div class="aud-badge" data-color="navy">ONG</div>
+                            <div class="aud-content">
+                                <h3>ONG & programmes de développement</h3>
+                                <p>« Nos indicateurs sont dispersés dans des tableurs. La direction n'a pas de vue
+                                    consolidée pour piloter. »</p>
+                            </div>
+                        </div>
+                        <div class="aud-card aud-featured">
+                            <div class="aud-badge" data-color="green">PME</div>
+                            <div class="aud-content">
+                                <h3>PME multi-sites</h3>
+                                <p>« On consolide manuellement les performances de chaque zone. Ça prend du temps et
+                                    c'est source d'erreurs. »</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="audience-row-standard">
+                        <div class="aud-card">
+                            <div class="aud-badge" data-color="soft">DIR</div>
+                            <div class="aud-content">
+                                <h3>Directions générales</h3>
+                                <p>« Je veux une page claire avec mes KPI, pas un tableur de 15 onglets. »</p>
+                            </div>
+                        </div>
+                        <div class="aud-card">
+                            <div class="aud-badge" data-color="soft">C&E</div>
+                            <div class="aud-content">
+                                <h3>Coordinateurs & évaluateurs</h3>
+                                <p>« J'ai besoin de détecter les zones qui décrochent avant qu'il ne soit trop tard. »
+                                </p>
+                            </div>
+                        </div>
+                        <div class="aud-card">
+                            <div class="aud-badge" data-color="soft">FIN</div>
+                            <div class="aud-content">
+                                <h3>Responsables financiers</h3>
+                                <p>« Le suivi budgétaire doit être croisé avec la performance opérationnelle. »</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. AVANT / APRÈS -->
+    <section class="compare">
+        <div class="container">
+            <div class="compare-header">
+                <div class="section-label">Transformation</div>
+                <h2 class="section-heading">Avant / Après</h2>
+                <p class="section-desc center">Le même besoin de pilotage, mais structuré, automatisé et exploitable.
+                </p>
+            </div>
+            <div class="compare-grid">
+                <div class="compare-col before">
+                    <h3>Aujourd'hui</h3>
+                    <ul>
+                        <li><span class="icon">✕</span> Données dispersées entre zones et services</li>
+                        <li><span class="icon">✕</span> Indicateurs recalculés manuellement chaque mois</li>
+                        <li><span class="icon">✕</span> Pas de vue consolidée pour la direction</li>
+                        <li><span class="icon">✕</span> Alertes détectées trop tard</li>
+                        <li><span class="icon">✕</span> Aucun document partageable en réunion de pilotage</li>
+                    </ul>
+                </div>
+                <div class="compare-arrow">
+                    <div class="compare-arrow-circle">→</div>
+                </div>
+                <div class="compare-col after">
+                    <h3>Avec un tableau de bord décisionnel</h3>
+                    <ul>
+                        <li><span class="icon">✓</span> Données centralisées dans un modèle en étoile</li>
+                        <li><span class="icon">✓</span> KPI calculés automatiquement (6 indicateurs clés)</li>
+                        <li><span class="icon">✓</span> Vue dirigeant sur une seule page</li>
+                        <li><span class="icon">✓</span> Alertes automatisées par zone et composante</li>
+                        <li><span class="icon">✓</span> PDF 5 pages prêt à partager par email</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DÉMONSTRATION VISUELLE -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="demo-header">
+                <div class="section-label">Preuve concrète</div>
+                <h2 class="section-heading">Ce que vous voyez concrètement</h2>
+                <p class="section-desc center">Voici des livrables réels, produits à partir d'un dataset synthétique de
+                    suivi de programme.</p>
+            </div>
+            <div class="demo-showcase">
+                <div class="demo-main">
+                    <img src="assets/screenshots/pdf-01-executive-overview.png" alt="Vue dirigeant — synthèse des KPI">
+                    <div class="demo-caption">
+                        <h3>Vue dirigeant — Synthèse des KPI</h3>
+                        <p>6 indicateurs clés, tendance mensuelle sur 15 mois, classement des zones par performance.</p>
+                        <div class="demo-caption-detail">
+                            <p><strong>Ce que cette démonstration contient :</strong></p>
+                            <ul class="demo-detail-list">
+                                <li><span class="demo-detail-icon">📊</span> <strong>Dashboard</strong> — KPIs,
+                                    tendances, alertes et comparaison par zone sur une page.</li>
+                                <li><span class="demo-detail-icon">📄</span> <strong>PDF 5 pages</strong> — rapport de
+                                    synthèse exportable avec vue dirigeant, opérationnelle et décisionnelle.</li>
+                                <li><span class="demo-detail-icon">⚙️</span> <strong>Pipeline complet</strong> — données
+                                    → modèle → graphiques → PDF, entièrement automatisé.</li>
+                            </ul>
+                            <p class="demo-detail-note">Toutes les données sont synthétiques et générées à des fins de
+                                démonstration uniquement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-side">
+                    <img src="assets/screenshots/pdf-02-operational-view.png" alt="Vue opérationnelle">
+                    <div class="demo-caption">
+                        <h3>Vue opérationnelle</h3>
+                        <p>Performance par composante, par responsable, état du reporting et suivi des problèmes.</p>
+                    </div>
+                </div>
+                <div class="demo-side">
+                    <img src="assets/screenshots/pdf-03-decision-reading.png" alt="Lecture décisionnelle">
+                    <div class="demo-caption">
+                        <h3>Lecture décisionnelle</h3>
+                        <p>Enseignements, vigilances et usages — traduits en langage de direction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. LIVRABLES -->
+    <section class="deliverables" id="livrables">
+        <div class="container">
+            <div class="deliverables-header">
+                <div class="section-label">Livrables</div>
+                <h2 class="section-heading">Ce que vous recevez</h2>
+                <p class="section-desc center">Un système complet de pilotage, du dataset brut au document partageable.
+                </p>
+            </div>
+            <div class="del-grid">
+                <div class="del-card">
+                    <span class="del-icon">📊</span>
+                    <h3>Tableau de bord interactif</h3>
+                    <p>Dashboard Power BI avec 6 KPI, filtres par zone, période et composante. Prêt pour la direction.
+                    </p>
+                </div>
+                <div class="del-card">
+                    <span class="del-icon">📄</span>
+                    <h3>PDF de synthèse (5 pages)</h3>
+                    <p>Rapport exportable : couverture, vue dirigeant, vue opérationnelle, lecture décisionnelle,
+                        périmètre.</p>
+                </div>
+                <div class="del-card">
+                    <span class="del-icon">⚠️</span>
+                    <h3>Système d'alertes</h3>
+                    <p>Détection automatique des zones en difficulté sur 5 critères : exécution, bénéficiaires, budget,
+                        reporting, incidents.</p>
+                </div>
+                <div class="del-card">
+                    <span class="del-icon">📈</span>
+                    <h3>5 graphiques analytiques</h3>
+                    <p>Vue exécutive, performance par zone, budget vs résultats, heatmap alertes, vue opérationnelle.
+                    </p>
+                </div>
+                <div class="del-card">
+                    <span class="del-icon">🔄</span>
+                    <h3>Pipeline automatisé</h3>
+                    <p>Génération → préparation → visualisation → PDF → validation QA. Reproductible à chaque période.
+                    </p>
+                </div>
+                <div class="del-card">
+                    <span class="del-icon">✅</span>
+                    <h3>Contrôle qualité intégré</h3>
+                    <p>29 vérifications automatiques sur les données, les calculs et les livrables générés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROCESS TIMELINE -->
+    <section class="process" id="methode">
+        <div class="container">
+            <div class="process-header">
+                <div class="section-label">Méthode</div>
+                <h2 class="section-heading">Comment ça fonctionne</h2>
+                <p class="section-desc center">Un processus en 5 étapes, des données brutes au tableau de bord
+                    décisionnel.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="timeline-dot">1</div>
+                    <h4>Données sources</h4>
+                    <p>Vos fichiers Excel ou CSV existants</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">2</div>
+                    <h4>Modèle en étoile</h4>
+                    <p>Dimensions + tables de faits structurées</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">3</div>
+                    <h4>Calcul des KPI</h4>
+                    <p>Mesures DAX et alertes automatisées</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">4</div>
+                    <h4>Dashboard</h4>
+                    <p>Tableau de bord interactif Power BI</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-dot">5</div>
+                    <h4>PDF & QA</h4>
+                    <p>Rapport exportable + validation qualité</p>
+                </div>
+            </div>
+            <div class="process-note-wrap">
+                <div class="process-note">Adaptable à votre contexte, vos indicateurs et votre rythme de reporting.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. POURQUOI CETTE APPROCHE -->
+    <section class="approach" id="approche">
+        <div class="container">
+            <div class="approach-header">
+                <div class="section-label">Approche</div>
+                <h2 class="section-heading">Pourquoi cette méthode fonctionne</h2>
+            </div>
+            <div class="approach-grid">
+                <ul class="approach-list">
+                    <li>
+                        <span class="approach-check">✓</span>
+                        <div>
+                            <strong>Orientée décision, pas technique</strong>
+                            <span>Les livrables sont conçus pour les directeurs et coordinateurs, pas pour les
+                                développeurs.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="approach-check">✓</span>
+                        <div>
+                            <strong>Alertes intégrées dès la conception</strong>
+                            <span>Le système détecte automatiquement les zones en difficulté sur 5 critères
+                                simultanés.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="approach-check">✓</span>
+                        <div>
+                            <strong>Du fichier brut au PDF en un clic</strong>
+                            <span>Pipeline complet : génération, calcul, visualisation, export PDF, contrôle
+                                qualité.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="approach-check">✓</span>
+                        <div>
+                            <strong>Reproductible chaque mois</strong>
+                            <span>Une fois configuré, le système produit les mêmes livrables fiables à chaque
+                                période.</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="approach-highlight">
+                    <h3>Ce que j'apporte</h3>
+                    <p>Je transforme vos données de programme en tableau de bord décisionnel structuré — avec des KPI
+                        clairs, des alertes automatisées et un PDF partageable. Pas de complexité inutile, juste ce
+                        qu'il faut pour piloter.</p>
+                    <div class="about-name">Georges GUIDAN</div>
+                    <div class="about-role">Consultant Data & Pilotage Décisionnel</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="faq-header">
+                <div class="section-label">Questions</div>
+                <h2 class="section-heading">Questions fréquentes</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item open">
+                    <button class="faq-q">Les données de cette démonstration sont-elles réelles ?<span
+                            class="toggle">+</span></button>
+                    <div class="faq-a">
+                        <p>Non. Toutes les données sont synthétiques et générées uniquement à des fins de démonstration.
+                            Elles simulent un programme multi-zones sur 15 mois avec des patterns réalistes
+                            (saisonnalité, variations de performance, alertes).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Faut-il Power BI pour utiliser ce système ?<span
+                            class="toggle">+</span></button>
+                    <div class="faq-a">
+                        <p>Power BI permet l'interactivité (filtres, drill-down). Mais les graphiques et le PDF sont
+                            générés indépendamment en Python. Vous recevez donc des livrables exploitables même sans
+                            licence Power BI.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Est-ce adapté à notre type de programme ?<span
+                            class="toggle">+</span></button>
+                    <div class="faq-a">
+                        <p>Le modèle s'adapte à tout programme structuré par zones, composantes et périodes. ONG, PME
+                            multi-sites, programmes de développement, projets de santé publique — la logique de pilotage
+                            est la même.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Combien de temps pour mettre en place le système ?<span
+                            class="toggle">+</span></button>
+                    <div class="faq-a">
+                        <p>Pour un programme de taille modérée (5-10 zones, 3-5 composantes), la mise en place peut se
+                            faire en 2 à 4 semaines, selon la complexité des données et le niveau de personnalisation
+                            attendu.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Nos équipes n'ont pas de compétences techniques<span
+                            class="toggle">+</span></button>
+                    <div class="faq-a">
+                        <p>C'est justement l'objectif. Vos équipes continuent à saisir normalement. La partie technique
+                            (modélisation, calculs, alertes, export) est entièrement prise en charge. Vous recevez les
+                            livrables prêts à l'emploi.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q">Nos données sont-elles en sécurité ?<span class="toggle">+</span></button>
+                    <div class="faq-a">
+                        <p>Oui. Le système peut fonctionner entièrement en local. Vos données ne quittent jamais votre
+                            environnement si vous le souhaitez. Si un hébergement est nécessaire, les données sont
+                            traitées de manière confidentielle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CTA FINAL -->
+    <section class="cta-final" id="contact">
+        <div class="container">
+            <div class="cta-reassurance">
+                <span>Démonstration disponible</span>
+                <span>Adaptation progressive</span>
+                <span>Sans engagement</span>
+            </div>
+            <h2>Intéressé par cette approche de pilotage ?</h2>
+            <p>Je peux adapter ce système de tableau de bord décisionnel à votre contexte : suivi de programme, pilotage
+                multi-zones, reporting opérationnel.</p>
+            <p class="cta-micro">Un échange de 15 minutes suffit pour voir si cette approche s'adapte à vos besoins.</p>
+            <div class="cta-buttons">
+                <a href="mailto:georgesguidan54@gmail.com?subject=Tableau%20de%20bord%20d%C3%A9cisionnel%20%E2%80%94%20demande%20d'%C3%A9change"
+                    class="btn-cta-primary">📧 Demander un échange</a>
+                <a href="https://wa.me/22901963789?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20votre%20d%C3%A9monstration%20de%20tableau%20de%20bord%20d%C3%A9cisionnel."
+                    class="btn-whatsapp">📱 Discuter sur WhatsApp</a>
+            </div>
+            <div class="cta-buttons cta-buttons-secondary">
+                <a href="https://github.com/Kavali7/powerbi-decision-dashboard" class="btn-cta-ghost" target="_blank"
+                    rel="noopener noreferrer">Voir le dépôt technique</a>
+                <a href="assets/pdf/decision-dashboard-summary.pdf" class="btn-cta-ghost" target="_blank">📄 Télécharger
+                    le PDF</a>
+            </div>
+            <div class="cta-contact">
+                <div class="cta-contact-name">Georges GUIDAN</div>
+                <div class="cta-contact-role">Consultant Data & Pilotage Décisionnel</div>
+                <div class="cta-contact-links">
+                    <a href="mailto:georgesguidan54@gmail.com">📧 georgesguidan54@gmail.com</a>
+                    <a href="tel:+22901963789">📱 +229 01 96 37 89 13</a>
+                    <a href="https://www.linkedin.com/in/guidan-georges-773777296/" target="_blank"
+                        rel="noopener noreferrer">💼 LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Démonstration professionnelle — Toutes les données sont fictives et à des fins d'illustration uniquement.<br>
+            <a href="https://github.com/Kavali7/powerbi-decision-dashboard">Documentation</a>
+            &nbsp;|&nbsp;
+            <a href="https://github.com/Kavali7/automated-reporting-demo">Voir aussi : Reporting Automatisé</a>
+        </p>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-q').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = this.parentElement;
+                var answer = item.querySelector('.faq-a');
+                var wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(function (el) {
+                    el.classList.remove('open');
+                    el.querySelector('.faq-a').style.maxHeight = null;
+                });
+                if (!wasOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+            });
+        });
+        var firstOpen = document.querySelector('.faq-item.open .faq-a');
+        if (firstOpen) firstOpen.style.maxHeight = firstOpen.scrollHeight + 'px';
+
+        // Sticky nav + scroll buttons
+        var stickyNav = document.getElementById('stickyNav');
+        var scrollBtns = document.querySelector('.scroll-btns');
+        var heroSection = document.getElementById('hero');
+        window.addEventListener('scroll', function () {
+            var heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+            if (window.scrollY > heroBottom - 60) { stickyNav.classList.add('visible'); }
+            else { stickyNav.classList.remove('visible'); }
+            if (window.scrollY > 300) { scrollBtns.classList.add('visible'); }
+            else { scrollBtns.classList.remove('visible'); }
+        });
+        document.getElementById('scrollTop').addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+
+</html>
